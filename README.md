@@ -67,7 +67,7 @@ The entire lifecycle of the test is backed up step-by-step by the screenshots sa
 * **What it shows:** The moment the controller woke up after the hardware short. It successfully read the baseline architecture, initialized under factory address layers, and flagged an initial **`Bad Block: 39/1348`**.
 
 <p align="center">
-  <img src="assets/Screenshot%202026-07-01%20164231.png" width="80%" alt="AlcorMP Initial Safe Mode Detection" />
+  <img src="assets/Screenshot%202026-07-01%20164231.png" width="75%" alt="AlcorMP Initial Safe Mode Detection" />
 </p>
 
 ### Step B: The 100% Milestone
@@ -75,7 +75,7 @@ The entire lifecycle of the test is backed up step-by-step by the screenshots sa
 * **What it shows:** The drive successfully survived an exhaustive raw sector check lasting exactly `30 minutes and 13 seconds`. The low-level scan passed 100% of the drive space, carefully mapping out where the unstable logic gates were hiding.
 
 <p align="center">
-  <img src="assets/3ff7d696-eb0d-4cc3-95f9-520ff371bd81" width="80%" alt="Low Level Scan Complete" />
+  <img src="assets/3ff7d696-eb0d-4cc3-95f9-520ff371bd81" width="75%" alt="Low Level Scan Complete 100%" />
 </p>
 
 ### Step C: Catastrophic Silicon Failure
