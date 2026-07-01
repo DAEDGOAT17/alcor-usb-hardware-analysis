@@ -67,7 +67,7 @@ The entire lifecycle of the test is backed up step-by-step by the screenshots sa
 * **Target File:** `assets/3fdb066e-fd9f-487e-a6a6-7781222d8104`
 * **What it shows:** The grand finale. After completing the scan, the compiler tried to write the actual file system allocation tables (FAT32/exFAT partition boundaries) onto Sectors 0 and 1. The hardware hit a physical wall and threw a bright red error code:
 
-
+```
 ================================================================================
               SILICON CASCADE DEGRADATION DEVIATION REPORT
 ================================================================================
@@ -91,7 +91,7 @@ The entire lifecycle of the test is backed up step-by-step by the screenshots sa
 │  [ACTION] THE SYSTEM CANNOT ALLOCATE MASTER FILE TABLES. COMPILATION ABORTED.│
 └──────────────────────────────────────────────────────────────────────────────┘
 
-
+```
 ```text
 🛑 91F00: Create file system error
 📊 Bad Block: 46/1348
