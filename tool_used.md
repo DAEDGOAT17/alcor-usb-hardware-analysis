@@ -7,7 +7,7 @@ This document details the specific hardware and software utility suite used to r
 ## 1. Primary Software Suite: AlcorMP
 The central engine for all low-level communication. Unlike standard formatting tools, AlcorMP bypasses the Windows storage stack to issue direct Opcodes to the controller firmware.
 
-* **Tool Version:** AlcorMP (Ver. 3.1.1.33)
+* **Tool Version:** AlcorMP (Ver. 200916.MD)
 * **Execution Environment:** Windows 10/11 x64 (Compatibility mode recommended)
 * **Configuration File:** `AlcorMP.ini`
     * *Purpose:* Defines the Flash Vendor ID (VID/PID), memory die timings, and ECC (Error Correction Code) thresholds.
