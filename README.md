@@ -16,6 +16,22 @@ When standard operating system utilities completely froze or failed to even reco
 * **Project Status:** Definite Hardware Failure (An awesome post-mortem engineering lesson!)
 
 ---
+# 🛠️ AlcorMP USB Controller Rescue — Hardware Hack & Post-Mortem
+
+> [!WARNING]
+> ### ⚠️ CRITICAL HAZARD ALERT
+> **Low-level hardware modification, firmware bypassing, and low-level mass production tool configuration carry severe risks of permanent hardware destruction, system instability, and unrecoverable data erasure.**
+> 
+> Before interacting with this repository or attempting to replicate these procedures, you **must read and understand** the safety mitigations and technical risk boundaries documented in [WARNING.md](WARNING.md).
+
+Ever wondered what happens when you push bargain-bin flash memory to its absolute physical limits? This repository documents a deep-dive hardware investigation where we bypassed factory-level write locks on a promotional Alcor Micro USB drive by going straight to the bare metal.
+
+When standard operating system utilities completely froze or failed to even recognize the drive, we stripped off the casing, shorted the hardware test points, and used factory mass production tools to see what went wrong under the hood.
+
+---
+
+## 📊 Technical Specs at a Glance
+---
 
 ## 1. Initial Symptoms & Standard Software Isolation Failures
 Before we broke out the hardware tools, the flash drive was completely bricked by an unyielding, factory-level write-protection lock. Trying to force our way through standard Windows software felt like hitting a brick wall:
