@@ -26,7 +26,6 @@ Before we broke out the hardware tools, the flash drive was completely bricked b
 
 <p align="center">
   <img src="assets/Screenshot%202026-07-01%20171708.png" width="45%" alt="Rufus Unresponsive Lockup" />
-  <img src="assets/Screenshot%202026-07-01%20171819.png" width="45%" alt="PowerShell Format Loop" />
 </p>
 
 ---
@@ -50,7 +49,7 @@ Once the computer recognized our custom-shorted hardware, we fired up the factor
 * **Bad Block Tracking:** `Auto Check`
 
 <p align="center">
-  <img src="assets/Screenshot%202026-07-01%20160401.png" width="80%" alt="AlcorMP Low-Level Natural Check Setup" />
+  <img src="assets/Screenshot 2026-07-01 160932.png" width="80%" alt="AlcorMP Low-Level Natural Check Setup" />
 </p>
 
 ### Why these specific settings?
