@@ -26,7 +26,7 @@ Before we broke out the hardware tools, the flash drive was completely bricked b
 
 <p align="center">
   <img src="assets/Screenshot%202026-07-01%20171708.png" width="45%" alt="Rufus Unresponsive Lockup" />
-  <img src="assets/Screenshot%202026-07-01%20171819.png" width="45%" alt="PowerShell Format Loop" />
+  <img src="assets/Screenshot 2026-07-01 171819.png" width="45%" alt="PowerShell Format Loop stuck" />
 </p>
 
 <p align="center">
