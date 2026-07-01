@@ -86,6 +86,7 @@ The entire lifecycle of the test is backed up step-by-step by the screenshots sa
 🛑 91F00: Create file system error
 📊 Bad Block: 46/1348
 ```
+```
 ================================================================================
               SILICON CASCADE DEGRADATION DEVIATION REPORT
 ================================================================================
@@ -112,4 +113,4 @@ The entire lifecycle of the test is backed up step-by-step by the screenshots sa
 ```
 ```text
 🛑 91F00: Create file system error
-📊 Bad Block: 46/1348
+📊 Bad Block: 46/1
