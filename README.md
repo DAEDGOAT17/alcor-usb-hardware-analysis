@@ -51,7 +51,7 @@ Before we broke out the hardware tools, the flash drive was completely bricked b
 </p>
 ---
 
-## 2. Going Bare Metal: The Hardware Hack
+## 2. Going Bare Metal: Hardware Hack
 To force the drive to talk to us, we carefully popped open the plastic housing to expose the tiny, monolithic integrated circuit board layout.
 
 1. **Tweezers to the Rescue (DFU Mode):** We tracked down the specialized hardware test points on the PCB. By bridging these two gold pads with precision tweezers while plugging the drive into a live `5V USB` port, we intercepted the boot loop, bypassed the corrupt internal firmware, and dropped the chip into a raw Data Firmware Update (DFU) program mode.
