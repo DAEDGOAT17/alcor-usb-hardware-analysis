@@ -1,8 +1,8 @@
 # 🛠️ AlcorMP USB Controller Rescue — Hardware Hack & Post-Mortem
 
-Ever wondered what happens when you push absolute bargain-bin flash memory to its absolute physical limits? This repository documents a deep-dive hardware investigation where we bypassed factory-level write locks on a promotional Alcor Micro USB drive by going straight to the bare metal.
+Ever wondered what happens when you push bargain-bin flash memory to its absolute physical limits? This repository documents a deep-dive hardware investigation where we bypassed factory-level write locks on a promotional Alcor Micro USB drive by going straight to the bare metal.
 
-When standard operating system utilities completely froze or failed to even recognize the drive, we stripped off the casing, shorted the hardware test points, and used factory mass production tools to see what went wrong under the hood. 
+When standard operating system utilities completely froze or failed to even recognize the drive, we stripped off the casing, shorted the hardware test points, and used factory mass production tools to see what went wrong under the hood.
 
 ---
 
@@ -17,14 +17,17 @@ When standard operating system utilities completely froze or failed to even reco
 
 ---
 
-## 1. The Red Flags: How the Drive Locked Us Out
+## 1. Initial Symptoms & Standard Software Isolation Failures
 Before we broke out the hardware tools, the flash drive was completely bricked by an unyielding, factory-level write-protection lock. Trying to force our way through standard Windows software felt like hitting a brick wall:
 
 * **The Rufus Freeze:** High-level partitioning software like `Rufus` went completely unresponsive (`Not Responding`) the second it tried to clear the Master Boot Record.
 * **The PowerShell Drop:** Running administrative command-line formatting (`format G: /fs:FAT32 /q /x`) either threw a frustrating `Specified drive does not exist` error or got stuck in an infinite loop asking us to `Insert new disk`.
 * **The Windows Loop:** Standard File Explorer kept choking on generic I/O errors, throwing the classic modal pop-up: `Please insert a disk into Removable Disk (H:)`.
 
-Because the drive’s internal controller chip was stuck in a permanent software lock, we realized we had to bypass the operating system layers entirely using hardware.
+<p align="center">
+  <img src="assets/Screenshot%202026-07-01%20171708.png" width="45%" alt="Rufus Unresponsive Lockup" />
+  <img src="assets/Screenshot%202026-07-01%20171819.png" width="45%" alt="PowerShell Format Loop" />
+</p>
 
 ---
 
@@ -46,6 +49,10 @@ Once the computer recognized our custom-shorted hardware, we fired up the factor
 * **Error Capacity Layer (ECC):** Set to `12` (Gives the compiler a generous 12-bit error correction window to keep weak cells alive)
 * **Bad Block Tracking:** `Auto Check`
 
+<p align="center">
+  <img src="assets/Screenshot%202026-07-01%20160401.png" width="80%" alt="AlcorMP Low-Level Natural Check Setup" />
+</p>
+
 ### Why these specific settings?
 We switched the tool to **Natural Check**. Instead of blasting the fragile silicon gates with continuous high voltage, this tells the controller to step carefully through the address spaces to prevent a cascading avalanche breakdown.
 
@@ -59,14 +66,25 @@ The entire lifecycle of the test is backed up step-by-step by the screenshots sa
 * **Target File:** `assets/Screenshot 2026-07-01 164231.png`
 * **What it shows:** The moment the controller woke up after the hardware short. It successfully read the baseline architecture, initialized under factory address layers, and flagged an initial **`Bad Block: 39/1348`**.
 
+<p align="center">
+  <img src="assets/Screenshot%202026-07-01%20164231.png" width="80%" alt="AlcorMP Initial Safe Mode Detection" />
+</p>
+
 ### Step B: The 100% Milestone
 * **Target File:** `assets/3ff7d696-eb0d-4cc3-95f9-520ff371bd81`
 * **What it shows:** The drive successfully survived an exhaustive raw sector check lasting exactly `30 minutes and 13 seconds`. The low-level scan passed 100% of the drive space, carefully mapping out where the unstable logic gates were hiding.
+
+<p align="center">
+  <img src="assets/3ff7d696-eb0d-4cc3-95f9-520ff371bd81" width="80%" alt="Low Level Scan Complete" />
+</p>
 
 ### Step C: Catastrophic Silicon Failure
 * **Target File:** `assets/3fdb066e-fd9f-487e-a6a6-7781222d8104`
 * **What it shows:** The grand finale. After completing the scan, the compiler tried to write the actual file system allocation tables (FAT32/exFAT partition boundaries) onto Sectors 0 and 1. The hardware hit a physical wall and threw a bright red error code:
 
+```text
+🛑 91F00: Create file system error
+📊 Bad Block: 46/1348
 ```
 ================================================================================
               SILICON CASCADE DEGRADATION DEVIATION REPORT
