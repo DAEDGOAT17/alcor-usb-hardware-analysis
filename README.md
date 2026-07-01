@@ -26,8 +26,13 @@ Before we broke out the hardware tools, the flash drive was completely bricked b
 
 <p align="center">
   <img src="assets/Screenshot%202026-07-01%20171708.png" width="45%" alt="Rufus Unresponsive Lockup" />
+  <img src="assets/Screenshot%202026-07-01%20171819.png" width="45%" alt="PowerShell Format Loop" />
 </p>
 
+<p align="center">
+  <img src="assets/Screenshot%202026-07-01%20172548.png" width="45%" alt="the device managers pov" />
+  <img src="assets/Screenshot%202026-07-01%20174425.png" width="45%" alt="the popup after inserting the degraded chip" />
+</p>
 ---
 
 ## 2. Going Bare Metal: The Hardware Hack
@@ -111,5 +116,3 @@ The entire lifecycle of the test is backed up step-by-step by the screenshots sa
 
 ```
 ```text
-🛑 91F00: Create file system error
-📊 Bad Block: 46/1
